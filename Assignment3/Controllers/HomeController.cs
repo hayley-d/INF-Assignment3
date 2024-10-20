@@ -13,16 +13,16 @@ namespace Assignment3.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Report()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Report";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Maintain()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Maintain Page";
 
             return View();
         }

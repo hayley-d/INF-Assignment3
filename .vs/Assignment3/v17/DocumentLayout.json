@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\home\\maintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\home\\maintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\models\\dbcontext.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\models\\dbcontext.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\models\\dbcontext.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\models\\dbcontext.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +27,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthorController.cs",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\AuthorController.cs",
-              "RelativeDocumentMoniker": "Assignment3\\Controllers\\AuthorController.cs",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\AuthorController.cs",
-              "RelativeToolTip": "Assignment3\\Controllers\\AuthorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T23:15:02.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DbContext.Context.cs",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\DbContext.Context.cs",
-              "RelativeDocumentMoniker": "Assignment3\\Models\\DbContext.Context.cs",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\DbContext.Context.cs",
-              "RelativeToolTip": "Assignment3\\Models\\DbContext.Context.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T23:14:28.496Z",
+              "Title": "Maintain.cshtml",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Maintain.cshtml",
+              "RelativeDocumentMoniker": "Assignment3\\Views\\Home\\Maintain.cshtml",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Maintain.cshtml",
+              "RelativeToolTip": "Assignment3\\Views\\Home\\Maintain.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T23:45:01.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "author.cs",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\author.cs",
-              "RelativeDocumentMoniker": "Assignment3\\Models\\author.cs",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\author.cs",
-              "RelativeToolTip": "Assignment3\\Models\\author.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Assignment3\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Assignment3\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T23:14:00.947Z",
+              "WhenOpened": "2024-10-20T23:43:25.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DbContext.edmx [Diagram1]",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\DbContext.edmx",
-              "RelativeDocumentMoniker": "Assignment3\\Models\\DbContext.edmx",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\DbContext.edmx [Diagram1]",
-              "RelativeToolTip": "Assignment3\\Models\\DbContext.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2024-10-20T23:13:11.72Z",
-              "EditorCaption": " [Diagram1]"
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T23:39:50.895Z",
+              "EditorCaption": ""
             }
           ]
         }
