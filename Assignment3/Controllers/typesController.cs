@@ -39,7 +39,7 @@ namespace Assignment3.Controllers
         // GET: types/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView("_CreateTypePartial");
         }
 
         // POST: types/Create
@@ -53,7 +53,7 @@ namespace Assignment3.Controllers
             {
                 db.types.Add(type);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
 
             return View(type);

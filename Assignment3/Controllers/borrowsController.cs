@@ -42,7 +42,7 @@ namespace Assignment3.Controllers
         {
             ViewBag.bookId = new SelectList(db.books, "bookId", "name");
             ViewBag.studentId = new SelectList(db.students, "studentId", "name");
-            return View();
+            return PartialView("_CreateBorrowPartial");
         }
 
         // POST: borrows/Create
@@ -56,7 +56,7 @@ namespace Assignment3.Controllers
             {
                 db.borrows.Add(borrow);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
 
             ViewBag.bookId = new SelectList(db.books, "bookId", "name", borrow.bookId);

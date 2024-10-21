@@ -7,7 +7,7 @@
     <div class="row">
         <!-- Authors Column -->
         <div class="col-md-6">
-            <div class="p-3 border bg-light">Authors</div>
+            <div class="p-3 border bg-light">Authors <button class="btn btn-success btn-sm" onclick="openAuthorCreateModal()">Create</button></div>
             <div style="max-height: 200px; overflow-y:  scroll;">
                 <table class="table">
                     <tr>
@@ -41,7 +41,7 @@
             </div>
             <!-- Types Column -->
         <div class="col-md-6">
-            <div class="p-3 border bg-light">Types</div>
+            <div class="p-3 border bg-light">Types  <button class="btn btn-success btn-sm" onclick="openTypeCreateModal()">Create</button></div>
             <div style="max-height: 200px; overflow-y:  scroll;">
                 <table class="table">
                     <tr>
@@ -72,7 +72,7 @@
     <div class="row">
         <!-- Borrwos Column -->
         <div class="col-md-12">
-            <div class="p-3 border bg-light">Borrows</div>
+            <div class="p-3 border bg-light">Borrows  <button class="btn btn-success btn-sm" onclick="openBorrowCreateModal()">Create</button></div>
             <div style="max-height: 400px; overflow-y:  scroll;">
                 <table class="table table-striped">
                     <tr>
@@ -197,6 +197,48 @@
             },
             error: function () {
                 alert('Failed to load the delete form.');
+            }
+        });
+    }
+
+    function openBorrowCreateModal() {
+        $.ajax({
+            url: '@Url.Action("Create", "borrows")/',
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the create form.');
+            }
+        });
+    }
+
+    function openTypeCreateModal() {
+        $.ajax({
+            url: '@Url.Action("Create", "types")/',
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the create form.');
+            }
+        });
+    }
+
+    function openAuthorCreateModal() {
+        $.ajax({
+            url: '@Url.Action("Create", "authors")/',
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the create form.');
             }
         });
     }

@@ -263,6 +263,9 @@
     <Content Include="Views\authors\_DeleteAuthorPartial.cshtml" />
     <Content Include="Views\types\_EditTypePartial.cshtml" />
     <Content Include="Views\types\_DeleteTypePartial.cshtml" />
+    <Content Include="Views\borrows\_CreateBorrowPartial.cshtml" />
+    <Content Include="Views\authors\_CreateAuthorPartial.cshtml" />
+    <Content Include="Views\types\_CreateTypePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -39,7 +39,7 @@ namespace Assignment3.Controllers
         // GET: authors/Create
         public ActionResult Create()
         {
-            return View();
+            return PartialView("_CreateAuthorPartial");
         }
 
         // POST: authors/Create
@@ -53,7 +53,7 @@ namespace Assignment3.Controllers
             {
                 db.authors.Add(author);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
 
             return View(author);
