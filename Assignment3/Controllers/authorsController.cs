@@ -67,6 +67,12 @@ namespace Assignment3.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             author author = await db.authors.FindAsync(id);
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+               return PartialView("_EditAuthorPartial", author);
+            }
+
             if (author == null)
             {
                 return HttpNotFound();
@@ -85,7 +91,7 @@ namespace Assignment3.Controllers
             {
                 db.Entry(author).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
             return View(author);
         }
@@ -98,6 +104,10 @@ namespace Assignment3.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             author author = await db.authors.FindAsync(id);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_DeleteAuthorPartial", author);
+            }
             if (author == null)
             {
                 return HttpNotFound();
@@ -110,10 +120,17 @@ namespace Assignment3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            author author = await db.authors.FindAsync(id);
+            var author = await db.authors.FindAsync(id);
+
+            bool hasBooks = await db.books.AnyAsync(b => b.authorId == id);
+            if (hasBooks)
+            {
+                Console.WriteLine("Cannot Delete: Author has books in the database");
+                return RedirectToAction("Maintain", "Home");
+            }
             db.authors.Remove(author);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Maintain", "Home");
         }
 
         protected override void Dispose(bool disposing)

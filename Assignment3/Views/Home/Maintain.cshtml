@@ -7,13 +7,67 @@
     <div class="row">
         <!-- Authors Column -->
         <div class="col-md-6">
-            <div class="p-3 border bg-light">Column 1 (Top Row)</div>
-        </div>
-        <!-- Types Column -->
+            <div class="p-3 border bg-light">Authors</div>
+            <div style="max-height: 200px; overflow-y:  scroll;">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Surname
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.Authors)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.surname)
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openAuthorEditModal(@item.authorId)">Edit</button>
+                                <button class="btn btn-danger btn-sm" onclick="openAuthorDeleteModal(@item.authorId)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            </div>
+            <!-- Types Column -->
         <div class="col-md-6">
-            <div class="p-3 border bg-light">Column 2 (Top Row)</div>
+            <div class="p-3 border bg-light">Types</div>
+            <div style="max-height: 200px; overflow-y:  scroll;">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.Types)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openTypeEditModal(@item.typeId)">Edit</button>
+                                <button class="btn btn-danger btn-sm" onclick="openTypeDeleteModal(@item.typeId)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            </div>
         </div>
-    </div>
 
     <div class="row">
         <!-- Borrwos Column -->
@@ -106,18 +160,74 @@
     }
 
     function openBorrowDeleteModal(borrowId) {
-    $.ajax({
-        url: '@Url.Action("Delete", "borrows")/' + borrowId,
-        type: 'GET',
-        success: function (data) {
-            $('#editBorrowFormContainer').html(data);
-            $('#editBorrowModal').modal('show');
-        },
-        error: function () {
-            alert('Failed to load the delete form.');
-        }
-    });
-}
+        $.ajax({
+            url: '@Url.Action("Delete", "borrows")/' + borrowId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the delete form.');
+            }
+        });
+    }
+
+    function openAuthorEditModal(authorId) {
+        $.ajax({
+            url: '@Url.Action("Edit", "authors")/' + authorId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the edit form.');
+            }
+        });
+    }
+
+    function openAuthorDeleteModal(authorId) {
+        $.ajax({
+            url: '@Url.Action("Delete", "authors")/' + authorId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the delete form.');
+            }
+        });
+    }
+
+    function openTypeEditModal(typeId) {
+        $.ajax({
+            url: '@Url.Action("Edit", "types")/' + typeId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the edit form.');
+            }
+        });
+    }
+
+    function openTypeDeleteModal(typeId) {
+        $.ajax({
+            url: '@Url.Action("Delete", "types")/' + typeId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the delete form.');
+            }
+        });
+    }
 
     function closeBorrowEditModal() {
         $('#editBorrowModal').modal('hide');

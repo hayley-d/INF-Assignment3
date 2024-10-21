@@ -67,6 +67,10 @@ namespace Assignment3.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             type type = await db.types.FindAsync(id);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_EditTypePartial", type);
+            }
             if (type == null)
             {
                 return HttpNotFound();
@@ -85,9 +89,9 @@ namespace Assignment3.Controllers
             {
                 db.Entry(type).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
-            return View(type);
+            return RedirectToAction("Maintain", "Home");
         }
 
         // GET: types/Delete/5
@@ -98,6 +102,10 @@ namespace Assignment3.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             type type = await db.types.FindAsync(id);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_DeleteTypePartial", type);
+            }
             if (type == null)
             {
                 return HttpNotFound();
@@ -111,9 +119,15 @@ namespace Assignment3.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             type type = await db.types.FindAsync(id);
+            bool hasBooks = await db.books.AnyAsync(b => b.typeId == id);
+            if (hasBooks)
+            {
+                Console.WriteLine("Cannot Delete: Type has books in the database");
+                return RedirectToAction("Maintain", "Home");
+            }
             db.types.Remove(type);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Maintain", "Home");
         }
 
         protected override void Dispose(bool disposing)
