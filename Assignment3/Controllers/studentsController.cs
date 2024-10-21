@@ -21,21 +21,6 @@ namespace Assignment3.Controllers
             return View(await db.students.ToListAsync());
         }
 
-        // GET: students/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            student student = await db.students.FindAsync(id);
-            if (student == null)
-            {
-                return HttpNotFound();
-            }
-            return View(student);
-        }
-
         // GET: students/Create
         public ActionResult Create()
         {

@@ -21,21 +21,6 @@ namespace Assignment3.Controllers
             return View(await db.authors.ToListAsync());
         }
 
-        // GET: authors/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            author author = await db.authors.FindAsync(id);
-            if (author == null)
-            {
-                return HttpNotFound();
-            }
-            return View(author);
-        }
-
         // GET: authors/Create
         public ActionResult Create()
         {

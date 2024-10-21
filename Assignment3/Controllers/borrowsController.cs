@@ -22,21 +22,6 @@ namespace Assignment3.Controllers
             return View(await borrows.ToListAsync());
         }
 
-        // GET: borrows/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            borrow borrow = await db.borrows.FindAsync(id);
-            if (borrow == null)
-            {
-                return HttpNotFound();
-            }
-            return View(borrow);
-        }
-
         // GET: borrows/Create
         public ActionResult Create()
         {

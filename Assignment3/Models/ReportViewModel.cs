@@ -24,21 +24,59 @@ namespace Assignment3.Models
         }
 
         /**
-         * Generates a list of students who currently have overdue books.
-         * @return A list of students with books overdue.
+         * Generates a dictionary of authors and their book counts
+         * @return A list of authors and their book counts.
          */
-        public List<student> GetOverdueBooks()
+        public Dictionary<author,int> GetAuthorCounts()
         {
-            return this.Students;
+            var booksPerAuthor = Books
+            .GroupBy(b => b.authorId) 
+            .Select(group => new
+            {
+                AuthorId = group.Key,
+                BookCount = group.Count() 
+            })
+            .ToList();
+
+            var authorsWithBookCount = (from result in booksPerAuthor
+                                        join author in Authors on result.AuthorId equals author.authorId
+                                        select new
+                                        {
+                                            Author = author,
+                                            BookCount = result.BookCount
+                                        })
+                                       .ToDictionary(a => a.Author, a => a.BookCount);
+
+            return authorsWithBookCount;
         }
 
         /**
-         * Generates a sorted list of books sorted in descending order of the number of times a book has been borrowed.
-         * @return A list of books.
+         * Generates a sorted dictionary of books sorted in descending order of the number of times a book has been borrowed.
+         * @return A dictinary of books and the amount of times each book has been taken out.
          */
-        public List<book> GetPopularBooks()
+        public Dictionary<book,int> GetPopularBooks()
         {
-            return this.Books;
+            var borrowCounts = Borrows
+            .GroupBy(b => b.bookId)
+            .Select(group => new
+            {
+                BookId = group.Key,
+                BorrowCount = group.Count()
+            })
+            .ToList();
+
+            var popularBooks = Books
+            .Join(borrowCounts,
+                  book => book.bookId,
+                  bc => bc.BookId,
+                  (book, bc) => new
+                  {
+                      Book = book,
+                      Count = bc.BorrowCount
+                  })
+            .OrderByDescending(x => x.Count) 
+            .ToDictionary(x => x.Book, x => x.Count);
+            return popularBooks;
         }
 
         /**
@@ -47,16 +85,43 @@ namespace Assignment3.Models
          */
         public Dictionary<String,int> GetBorrowsPerMonth()
         {
+            var borrowsPerMonth = Borrows
+            .GroupBy(b => b.takenDate?.Month) 
+            .Select(group => new
+            {
+                Month = group.Key,
+                Count = group.Count() 
+            })
+            .ToList();
+
+            var monthNames = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames;
+            var result = borrowsPerMonth.ToDictionary(
+                x => monthNames[(int)x.Month - 1], 
+                x => x.Count);
             return new Dictionary<string, int>();
         }
 
         /**
-         * Generates a list of strudents sorted in descending order by the amount of books borrowed.
+         * Generates a list of students sorted in descending order by the amount of books borrowed.
          * @return List of students sorted.
          */
         public List<student> GetTopBorrowers()
         {
-            return this.Students;
+            var topBorrowers = Borrows
+            .GroupBy(b => b.studentId) 
+            .Select(group => new
+            {
+                StudentId = group.Key,
+                BorrowCount = group.Count() 
+            })
+            .OrderByDescending(x => x.BorrowCount) 
+            .ToList();
+
+            var students = (from borrower in topBorrowers
+                            join student in Students on borrower.StudentId equals student.Id
+                            select student)
+                        .ToList();
+            return students;
         }
 
     }

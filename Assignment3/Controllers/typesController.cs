@@ -21,21 +21,6 @@ namespace Assignment3.Controllers
             return View(await db.types.ToListAsync());
         }
 
-        // GET: types/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            type type = await db.types.FindAsync(id);
-            if (type == null)
-            {
-                return HttpNotFound();
-            }
-            return View(type);
-        }
-
         // GET: types/Create
         public ActionResult Create()
         {
