@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\controllers\\borrowscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\borrowscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\borrows\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\borrows\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\home\\maintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\home\\maintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,37 +30,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "borrowsController.cs",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\borrowsController.cs",
+              "RelativeDocumentMoniker": "Assignment3\\Controllers\\borrowsController.cs",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\borrowsController.cs",
+              "RelativeToolTip": "Assignment3\\Controllers\\borrowsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T00:20:07.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\borrows\\Index.cshtml",
+              "RelativeDocumentMoniker": "Assignment3\\Views\\borrows\\Index.cshtml",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\borrows\\Index.cshtml",
+              "RelativeToolTip": "Assignment3\\Views\\borrows\\Index.cshtml",
+              "ViewState": "AgIAABcAAAAAAAAAAAAmwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-21T00:16:10.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Maintain.cshtml",
               "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Maintain.cshtml",
               "RelativeDocumentMoniker": "Assignment3\\Views\\Home\\Maintain.cshtml",
               "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Maintain.cshtml",
               "RelativeToolTip": "Assignment3\\Views\\Home\\Maintain.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-20T23:45:01.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Assignment3\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Assignment3\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T23:43:25.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Assignment3\\Views\\Shared\\_Layout.cshtml",
@@ -60,8 +94,7 @@
               "RelativeToolTip": "Assignment3\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-20T23:39:50.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T23:39:50.895Z"
             }
           ]
         }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Assignment3.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,23 +11,25 @@ namespace Assignment3.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private LibraryEntities db = new LibraryEntities();
+        public async Task<ActionResult> Index()
         {
-            return View();
+            HomeViewModel viewModel = new HomeViewModel(await db.books.ToListAsync(), await db.students.ToListAsync());
+            return View(viewModel);
         }
 
-        public ActionResult Report()
+        public async Task<ActionResult> Report()
         {
             ViewBag.Message = "Report";
-
-            return View();
+            ReportViewModel viewModel = new ReportViewModel(await db.authors.ToListAsync(), await db.borrows.ToListAsync(), await db.types.ToListAsync(), await db.books.ToListAsync(), await db.students.ToListAsync());
+            return View(viewModel);
         }
 
-        public ActionResult Maintain()
+        public async Task<ActionResult> Maintain()
         {
             ViewBag.Message = "Maintain Page";
-
-            return View();
+            MaintainViewModel viewModel = new MaintainViewModel(await db.authors.ToListAsync(), await db.borrows.ToListAsync(), await db.types.ToListAsync());
+            return View(viewModel);
         }
     }
 }

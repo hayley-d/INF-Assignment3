@@ -153,6 +153,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\MaintainViewModel.cs" />
+    <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Models\student.cs">
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
