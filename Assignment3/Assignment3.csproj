@@ -232,20 +232,12 @@
     <Content Include="Views\Home\Report.cshtml" />
     <Content Include="Views\Home\Maintain.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\books\Create.cshtml" />
-    <Content Include="Views\books\Delete.cshtml" />
-    <Content Include="Views\books\Details.cshtml" />
-    <Content Include="Views\books\Edit.cshtml" />
     <Content Include="Views\books\Index.cshtml" />
     <Content Include="Views\borrows\Create.cshtml" />
     <Content Include="Views\borrows\Delete.cshtml" />
     <Content Include="Views\borrows\Details.cshtml" />
     <Content Include="Views\borrows\Edit.cshtml" />
     <Content Include="Views\borrows\Index.cshtml" />
-    <Content Include="Views\students\Create.cshtml" />
-    <Content Include="Views\students\Delete.cshtml" />
-    <Content Include="Views\students\Details.cshtml" />
-    <Content Include="Views\students\Edit.cshtml" />
     <Content Include="Views\students\Index.cshtml" />
     <Content Include="Views\types\Create.cshtml" />
     <Content Include="Views\types\Delete.cshtml" />
@@ -266,6 +258,8 @@
     <Content Include="Views\borrows\_CreateBorrowPartial.cshtml" />
     <Content Include="Views\authors\_CreateAuthorPartial.cshtml" />
     <Content Include="Views\types\_CreateTypePartial.cshtml" />
+    <Content Include="Views\students\_CreateStudentPartial.cshtml" />
+    <Content Include="Views\books\_CreateBookPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

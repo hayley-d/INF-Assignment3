@@ -14,7 +14,7 @@ namespace Assignment3.Controllers
         private LibraryEntities db = new LibraryEntities();
         public async Task<ActionResult> Index()
         {
-            HomeViewModel viewModel = new HomeViewModel(await db.books.ToListAsync(), await db.students.ToListAsync());
+            HomeViewModel viewModel = new HomeViewModel(await db.books.ToListAsync(), await db.students.ToListAsync(), await db.borrows.ToListAsync());
             return View(viewModel);
         }
 
