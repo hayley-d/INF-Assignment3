@@ -257,6 +257,8 @@
     <Content Include="Views\authors\Details.cshtml" />
     <Content Include="Views\authors\Edit.cshtml" />
     <Content Include="Views\authors\Index.cshtml" />
+    <Content Include="Views\borrows\_EditBorrowPartial.cshtml" />
+    <Content Include="Views\borrows\_DeleteBorrowPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

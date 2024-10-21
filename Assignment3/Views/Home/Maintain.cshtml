@@ -53,17 +53,16 @@
                                 @Html.DisplayFor(modelItem => item.student.name)
                             </td>
                             <td>
-
-                                @Html.ActionLink("Edit", "Edit", "Borrow", new { id = item.borrowId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.borrowId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.borrowId })
+                                <button class="btn btn-warning btn-sm" onclick="openBorrowEditModal(@item.borrowId)">Edit</button>
+                                <button class="btn btn-danger btn-sm" onclick="openBorrowDeleteModal(@item.borrowId)">Delete</button>
                             </td>
                         </tr>
                     }
 
                 </table>
             </div>
-            
+
+
 
         </div>
     </div>
@@ -72,3 +71,55 @@
 
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="editBorrowModal" tabindex="-1" role="dialog" aria-labelledby="editBorrowModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editBorrowModalLabel">Edit Borrow</h5>
+            </div>
+            <div class="modal-body">
+                <!-- Form will be dynamically loaded here -->
+                <div id="editBorrowFormContainer"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeBorrowEditModal()" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openBorrowEditModal(borrowId) {
+        $.ajax({
+            url: '@Url.Action("Edit", "borrows")/' + borrowId,
+            type: 'GET',
+            success: function (data) {
+                $('#editBorrowFormContainer').html(data);
+                $('#editBorrowModal').modal('show');
+            },
+            error: function () {
+                alert('Failed to load the edit form.');
+            }
+        });
+    }
+
+    function openBorrowDeleteModal(borrowId) {
+    $.ajax({
+        url: '@Url.Action("Delete", "borrows")/' + borrowId,
+        type: 'GET',
+        success: function (data) {
+            $('#editBorrowFormContainer').html(data);
+            $('#editBorrowModal').modal('show');
+        },
+        error: function () {
+            alert('Failed to load the delete form.');
+        }
+    });
+}
+
+    function closeBorrowEditModal() {
+        $('#editBorrowModal').modal('hide');
+    }
+</script>

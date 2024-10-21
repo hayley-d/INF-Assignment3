@@ -76,6 +76,27 @@ namespace Assignment3.Controllers
             {
                 return HttpNotFound();
             }
+            // If request is an AJAX request, return partial view (no layout)
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                var students = db.students.Select(s => new SelectListItem
+                {
+                    Value = s.studentId.ToString(),
+                    Text = s.name 
+                }).ToList();
+
+                ViewBag.studentId = new SelectList(students, "Value", "Text",borrow.studentId);
+
+                var books = db.books.Select(s => new SelectListItem
+                {
+                    Value = s.bookId.ToString(),
+                    Text = s.name
+                }).ToList();
+
+                ViewBag.bookId = new SelectList(books, "Value", "Text",borrow.bookId);
+
+                return PartialView("_EditBorrowPartial", borrow); 
+            }
             ViewBag.bookId = new SelectList(db.books, "bookId", "name", borrow.bookId);
             ViewBag.studentId = new SelectList(db.students, "studentId", "name", borrow.studentId);
             return View(borrow);
@@ -92,11 +113,12 @@ namespace Assignment3.Controllers
             {
                 db.Entry(borrow).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Maintain", "Home");
             }
             ViewBag.bookId = new SelectList(db.books, "bookId", "name", borrow.bookId);
             ViewBag.studentId = new SelectList(db.students, "studentId", "name", borrow.studentId);
-            return View(borrow);
+            return RedirectToAction("Maintain", "Home");
+           
         }
 
         // GET: borrows/Delete/5
@@ -107,6 +129,10 @@ namespace Assignment3.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             borrow borrow = await db.borrows.FindAsync(id);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_DeleteBorrowPartial", borrow);
+            }
             if (borrow == null)
             {
                 return HttpNotFound();
@@ -122,7 +148,7 @@ namespace Assignment3.Controllers
             borrow borrow = await db.borrows.FindAsync(id);
             db.borrows.Remove(borrow);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Maintain", "Home");
         }
 
         protected override void Dispose(bool disposing)
