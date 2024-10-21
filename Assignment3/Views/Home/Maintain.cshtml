@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Maintain";
 }
+@model Assignment3.Models.MaintainViewModel
+
 <div class="container">
     <div class="row">
         <!-- Authors Column -->
@@ -16,7 +18,57 @@
     <div class="row">
         <!-- Borrwos Column -->
         <div class="col-md-12">
-            <div class="p-3 border bg-light">Single Column (Bottom Row)</div>
+            <div class="p-3 border bg-light">Borrows</div>
+            <div style="max-height: 400px; overflow-y:  scroll;">
+                <table class="table table-striped">
+                    <tr>
+                        <th>
+                            Taken Date
+                        </th>
+                        <th>
+                            Brought Date
+                        </th>
+                        <th>
+                            Book Name
+                        </th>
+                        <th>
+                            Student Name
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.Borrows)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.takenDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.broughtDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.book.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.student.name)
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Edit", "Edit", "Borrow", new { id = item.borrowId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.borrowId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.borrowId })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            
+
         </div>
+    </div>
+
+    <div style="height: 400px; width:100%;">
+
     </div>
 </div>
