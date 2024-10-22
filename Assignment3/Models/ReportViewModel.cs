@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Razor.Generator;
+using System.Web.Services.Description;
 
 namespace Assignment3.Models
 {
@@ -22,107 +23,122 @@ namespace Assignment3.Models
             Books = books;
             Students = students;
         }
-
-        /**
-         * Generates a dictionary of authors and their book counts
-         * @return A list of authors and their book counts.
-         */
-        public Dictionary<author,int> GetAuthorCounts()
-        {
-            var booksPerAuthor = Books
-            .GroupBy(b => b.authorId) 
-            .Select(group => new
-            {
-                AuthorId = group.Key,
-                BookCount = group.Count() 
-            })
-            .ToList();
-
-            var authorsWithBookCount = (from result in booksPerAuthor
-                                        join author in Authors on result.AuthorId equals author.authorId
-                                        select new
-                                        {
-                                            Author = author,
-                                            BookCount = result.BookCount
-                                        })
-                                       .ToDictionary(a => a.Author, a => a.BookCount);
-
-            return authorsWithBookCount;
-        }
+       
 
         /**
          * Generates a sorted dictionary of books sorted in descending order of the number of times a book has been borrowed.
          * @return A dictinary of books and the amount of times each book has been taken out.
          */
-        public Dictionary<book,int> GetPopularBooks()
+        public Dictionary<string,int> GetPopularBooks()
         {
             var borrowCounts = Borrows
-            .GroupBy(b => b.bookId)
-            .Select(group => new
-            {
-                BookId = group.Key,
-                BorrowCount = group.Count()
-            })
-            .ToList();
+         .GroupBy(b => b.bookId)
+         .Select(group => new
+         {
+             BookId = group.Key,
+             BorrowCount = group.Count()
+         })
+         .ToList();
 
             var popularBooks = Books
-            .Join(borrowCounts,
-                  book => book.bookId,
-                  bc => bc.BookId,
-                  (book, bc) => new
-                  {
-                      Book = book,
-                      Count = bc.BorrowCount
-                  })
-            .OrderByDescending(x => x.Count) 
-            .ToDictionary(x => x.Book, x => x.Count);
+                .Join(borrowCounts,
+                      book => book.bookId,
+                      bc => bc.BookId,
+                      (book, bc) => new
+                      {
+                          BookId = book.bookId,  
+                          BookTitle = book.name, 
+                          Count = bc.BorrowCount
+                      })
+                .GroupBy(x => x.BookTitle) 
+                .Select(group => new
+                {
+                    BookTitle = group.First().BookTitle, 
+                    TotalCount = group.Sum(x => x.Count) 
+                })
+                .OrderByDescending(x => x.TotalCount)
+                .Take(10)
+                .ToDictionary(x => x.BookTitle, x => x.TotalCount);
+
             return popularBooks;
         }
 
         /**
-         * Generates a map, linking the amount of borrows per month in the year 2015 (as per database).
-         * @return A dictionary<String,int> where string is the month name and int is the count of books for the month.
+         * Generates a dictionary linking each book type to the count of books associated with that type.
+         * @return A Dictionary<string, int> where the key is the type name and the value is the count of books of that type.
          */
-        public Dictionary<String,int> GetBorrowsPerMonth()
+        public Dictionary<string,int> GetTypeCounts()
         {
-            var borrowsPerMonth = Borrows
-            .GroupBy(b => b.takenDate?.Month) 
-            .Select(group => new
-            {
-                Month = group.Key,
-                Count = group.Count() 
-            })
-            .ToList();
+            Dictionary<string, int> bookCountByType = Types
+        .GroupBy(type => type.name) // Group by the type name
+        .Select(group => new
+        {
+            TypeName = group.Key,
+            BookCount = Books.Count(book => book.typeId == group.First().typeId) // Count books for this type
+        })
+        .Take(5)
+        .ToDictionary(x => x.TypeName, x => x.BookCount);
 
-            var monthNames = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames;
-            var result = borrowsPerMonth.ToDictionary(
-                x => monthNames[(int)x.Month - 1], 
-                x => x.Count);
-            return new Dictionary<string, int>();
+            return bookCountByType;
         }
 
         /**
-         * Generates a list of students sorted in descending order by the amount of books borrowed.
-         * @return List of students sorted.
-         */
-        public List<student> GetTopBorrowers()
+          * Generates a dictionary of students' full names and their respective borrow count, 
+          * sorted in descending order by the amount of books borrowed.
+          * @return Dictionary where the key is the student's full name and the value is the borrow count.
+          */
+        public Dictionary<string, int> GetTopBorrowers()
         {
             var topBorrowers = Borrows
-            .GroupBy(b => b.studentId) 
+                .GroupBy(b => b.studentId)
+                .Select(group => new
+                {
+                    StudentId = group.Key,
+                    BorrowCount = group.Count()
+                })
+                .OrderByDescending(x => x.BorrowCount)
+                .Take(10)
+                .ToList();
+
+            var result = (from borrower in topBorrowers
+                          join student in Students on borrower.StudentId equals student.studentId
+                          select new
+                          {
+                              FullName = student.name + " " + student.surname,
+                              BorrowCount = borrower.BorrowCount
+                          })
+                         .ToDictionary(x => x.FullName, x => x.BorrowCount);
+
+            return result;
+        }
+
+        /**
+         * Generates a dictionary of author names and their respective borrow count.
+         * Sorted in descending order by the amount of times borrowed.
+         * @return Dictionary where the key is the author name and the value is the borrow count.
+         */
+        public Dictionary<string,int> GetTopAuthors()
+        {
+            var top10Authors = Borrows
+            .GroupBy(borrow => Books.First(book => book.bookId == borrow.bookId).authorId)  
             .Select(group => new
             {
-                StudentId = group.Key,
-                BorrowCount = group.Count() 
+                AuthorId = group.Key,
+                BorrowCount = group.Count()                             
             })
-            .OrderByDescending(x => x.BorrowCount) 
-            .ToList();
+            .OrderByDescending(author => author.BorrowCount)            
+            .Take(10)                                                   
+            .Join(Authors,                                              
+                  borrow => borrow.AuthorId,
+                  author => author.authorId,
+                  (borrow, author) => new { author.name, borrow.BorrowCount }) 
+            .ToDictionary(author => author.name, author => author.BorrowCount);
 
-            var students = (from borrower in topBorrowers
-                            join student in Students on borrower.StudentId equals student.Id
-                            select student)
-                        .ToList();
-            return students;
+            return top10Authors;
         }
+
+
+        
 
     }
 }

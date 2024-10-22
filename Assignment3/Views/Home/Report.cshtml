@@ -1,9 +1,220 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+@model Assignment3.Models.ReportViewModel
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Top Borrowers -->
+<h1>Report</h1>
+<hr />
+
+<div class="container" id="report-container">
+    <!-- Top row -->
+    <div class="row" style="max-height:450px">
+        <div class="col-md-4">
+            <!-- Types Donut Chart -->
+            <div class="p-3 border bg-light">Top 5 Book Types</div>
+            <canvas id="piechart" style=""></canvas>
+        </div>
+        <div class="col-md-4">
+            <!-- 10 Popular Books -->
+            <div class="p-3 border bg-light">Top 10 Books</div>
+            <canvas id="popularBooksChart"></canvas>
+        </div>
+        <div class="col-md-4">
+            <!-- Most Loved Authors -->
+            <div class="p-3 border bg-light">Most Loved Authors</div>
+            <canvas id="authors" style=""></canvas>
+        </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="row mt-4" style="max-height:300px; overflow-y:scroll;">
+        <div class="col-md-12">
+            <!-- Top Students -->
+            <div class="p-3 border bg-light">Top 10 Students</div>
+            <div style="overflow-y:scroll;" style="max-height:200px;">
+                <table class="table table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Total Books Borrowed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var tuple in Model.GetTopBorrowers())
+                        {
+                            <tr>
+                                <td>@tuple.Key</td>
+                                <td>@tuple.Value</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<hr/>
+<div class="container-fluid">
+    <div class="form-group mt-3">
+        <label for="fileName">Enter the file name for the Report:</label>
+        <input type="text" class="form-control" id="fileName" placeholder="Enter file name" value="report">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <button id="download" class="btn btn-outline-success">Download PDF</button>
+            </div>
+            <div class="col-3">
+                <button id="downloadXML" class="btn btn-outline-success">Download XML</button>
+            </div>
+            <div class="col-3">
+                <button id="downloadCSV" class="btn btn-outline-success">Download CSV</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<br />
+<hr />
+
+
+    <script>
+        // Popular Books Data
+        const popularBooksLabels = @Html.Raw(Json.Encode(Model.GetPopularBooks().Keys));
+        const popularBooksData = @Html.Raw(Json.Encode(Model.GetPopularBooks().Values));
+
+        // Type Counts
+        const pie_labels = @Html.Raw(Json.Encode(Model.GetTypeCounts().Keys));
+        const pie_data = @Html.Raw(Json.Encode(Model.GetTypeCounts().Values));
+
+        const author_labels = @Html.Raw(Json.Encode(Model.GetTopAuthors().Keys));
+        const author_data = @Html.Raw(Json.Encode(Model.GetTopAuthors().Values));
+
+        // Popular Books Chart
+        var ctx = document.getElementById('popularBooksChart').getContext('2d');
+        var popularBooksChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: popularBooksLabels,
+                datasets: [{
+                    label: 'Times Borrowed',
+                    data: popularBooksData,
+                  
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Most Popular
+    var ctx2 = document.getElementById('piechart').getContext('2d');
+    const myPieChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: pie_labels,
+            datasets: [{
+                label: 'Book Counts by Type',
+                data: pie_data,
+                
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Book Counts by Type'
+                }
+            }
+        }
+    });
+
+    var ctx3 = document.getElementById('authors').getContext('2d');
+    const myPieChart2 = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: author_labels,
+            datasets: [{
+                label: 'Top Authors by borrows',
+                data: author_data,
+                
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Top Authors by borrows'
+                }
+            }
+        }
+    });
+
+
+
+        // Function to download PDF
+        document.getElementById('download').addEventListener('click', function () {
+            const fileName = document.getElementById("fileName").value;
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            html2canvas(document.getElementById('piechart')).then(pieCanvas => {
+                const pieImgData = pieCanvas.toDataURL('image/png');
+                pdf.addImage(pieImgData, 'PNG', 10, 10, 80, 80);
+                
+
+                html2canvas(document.getElementById('authors')).then(boCanvas => {
+                    const doImgData = boCanvas.toDataURL('image/png');
+                    pdf.addImage(doImgData, 'PNG', 100, 10, 80, 80); 
+                    
+                    html2canvas(document.getElementById('popularBooksChart')).then(barCanvas => {
+                        const barImgData = barCanvas.toDataURL('image/png');
+                        pdf.addImage(barImgData, 'PNG', 10, 110, 100, 80); 
+                        
+                        pdf.autoTable({
+                            html: '#myTable', 
+                            startY: 200, 
+                            theme: 'grid', 
+                            headStyles: {
+                                fillColor: [22, 160, 133] 
+                            },
+                            styles: {
+                                overflow: 'linebreak', 
+                                cellPadding: 2,
+                                fontSize: 10,
+                            }
+                        });
+
+                        
+                        pdf.save(`${fileName}.pdf`);
+                    });
+                });
+            });
+        });
+
+    </script>
+
