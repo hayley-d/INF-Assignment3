@@ -3,138 +3,130 @@
 }
 @model Assignment3.Models.MaintainViewModel
 
-<div class="container">
-    <div class="row">
-        <!-- Authors Column -->
-        <div class="col-md-6">
-            <div class="p-3 border bg-light">Authors <button class="btn btn-success btn-sm" onclick="openAuthorCreateModal()">Create</button></div>
-            <div style="max-height: 200px; overflow-y:  scroll;">
-                <table class="table">
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Surname
-                        </th>
-                        <th></th>
-                    </tr>
 
-                    @foreach (var item in Model.Authors)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.surname)
-                            </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" onclick="openAuthorEditModal(@item.authorId)">Edit</button>
-                                <button class="btn btn-danger btn-sm" onclick="openAuthorDeleteModal(@item.authorId)">Delete</button>
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </div>
-            </div>
-            <!-- Types Column -->
-        <div class="col-md-6">
-            <div class="p-3 border bg-light">Types  <button class="btn btn-success btn-sm" onclick="openTypeCreateModal()">Create</button></div>
-            <div style="max-height: 200px; overflow-y:  scroll;">
-                <table class="table">
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <th></th>
-                    </tr>
-
-                    @foreach (var item in Model.Types)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.name)
-                            </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" onclick="openTypeEditModal(@item.typeId)">Edit</button>
-                                <button class="btn btn-danger btn-sm" onclick="openTypeDeleteModal(@item.typeId)">Delete</button>
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </div>
-            </div>
+<div style="display:grid; grid-template-columns:43vw 43vw; grid-template-rows:1fr 1fr; justify-content:center;align-items:center;gap:20px;">
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div style="display:flex; gap:10vw;">
+            <div><h2>Authors</h2></div>
+            <div><button class="btn btn-success btn-sm" onclick="openAuthorCreateModal()" style="font-size:18px;">Create</button></div>
         </div>
 
-    <div class="row">
-        <!-- Borrwos Column -->
-        <div class="col-md-12">
-            <div class="p-3 border bg-light">Borrows  <button class="btn btn-success btn-sm" onclick="openBorrowCreateModal()">Create</button></div>
-            <div style="max-height: 400px; overflow-y:  scroll;">
-                <table class="table table-striped">
-                    <tr>
-                        <th>
-                            Taken Date
-                        </th>
-                        <th>
-                            Brought Date
-                        </th>
-                        <th>
-                            Book Name
-                        </th>
-                        <th>
-                            Student Name
-                        </th>
-                        <th></th>
+        <div style="max-height: 200px; overflow-y:  scroll; width:40vw;">
+            <table class="table">
+                <tr style="font-size:18px">
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Surname
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Authors)
+                {
+                    <tr style="font-size:16px">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.surname)
+                        </td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="openAuthorEditModal(@item.authorId)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="openAuthorDeleteModal(@item.authorId)">Delete</button>
+                        </td>
                     </tr>
+                }
 
-                    @foreach (var item in Model.Borrows)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.takenDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.broughtDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.book.name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.student.name)
-                            </td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" onclick="openBorrowEditModal(@item.borrowId)">Edit</button>
-                                <button class="btn btn-danger btn-sm" onclick="openBorrowDeleteModal(@item.borrowId)">Delete</button>
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </div>
-
-
-
+            </table>
         </div>
     </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div style="display:flex; gap:50px;">
+            <div><h2>Types</h2></div>
+            <div><button class="btn btn-success btn-sm" onclick="openTypeCreateModal()" style="font-size:18px;">Create</button></div>
+        </div>
+        <div style="max-height: 200px; overflow-y: scroll; width: 40vw;">
+            <table class="table">
+                <tr style="font-size:18px">
+                    <th>
+                        Name
+                    </th>
+                    <th></th>
+                </tr>
 
-    <div style="height: 400px; width:100%;">
+                @foreach (var item in Model.Types)
+                {
+                    <tr style="font-size:16px">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="openTypeEditModal(@item.typeId)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="openTypeDeleteModal(@item.typeId)">Delete</button>
+                        </td>
+                    </tr>
+                }
 
+            </table>
+        </div>
+    </div>
+    <div style="grid-column: span 2; display: flex; justify-content: center; align-items: center; flex-direction:column;">
+        <div style="display:flex; gap:50px;">
+            <div><h2>Borrows</h2></div>
+            <div><button class="btn btn-success btn-sm" onclick="openBorrowCreateModal()" style="font-size:18px;">Create</button></div>
+        </div>
+        <div style="max-height: 400px; overflow-y:  scroll; width:80vw;">
+            <table class="table table-striped">
+                <tr style="font-size:18px">
+                    <th>
+                        Taken Date
+                    </th>
+                    <th>
+                        Brought Date
+                    </th>
+                    <th>
+                        Book Name
+                    </th>
+                    <th>
+                        Student Name
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Borrows)
+                {
+                    <tr style="font-size:16px">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.takenDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.broughtDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.book.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.student.name)
+                        </td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="openBorrowEditModal(@item.borrowId)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="openBorrowDeleteModal(@item.borrowId)">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
     </div>
 </div>
-
-<!-- Modal -->
 <div class="modal fade" id="editBorrowModal" tabindex="-1" role="dialog" aria-labelledby="editBorrowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editBorrowModalLabel">Edit Borrow</h5>
-            </div>
+            
             <div class="modal-body">
-                <!-- Form will be dynamically loaded here -->
+               
                 <div id="editBorrowFormContainer"></div>
             </div>
             <div class="modal-footer">
@@ -142,6 +134,9 @@
             </div>
         </div>
     </div>
+</div>
+<div style="height:60px;">
+
 </div>
 
 <script>

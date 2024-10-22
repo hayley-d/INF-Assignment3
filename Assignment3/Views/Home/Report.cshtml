@@ -12,23 +12,28 @@
 <!-- Top Borrowers -->
 <h1>Report</h1>
 <hr />
+<br/>
 
 <div class="container" id="report-container">
     <!-- Top row -->
     <div class="row" style="max-height:450px">
         <div class="col-md-4">
             <!-- Types Donut Chart -->
-            <div class="p-3 border bg-light">Top 5 Book Types</div>
+
+            <h3>Top 5 Book Types</h3>
+            <br />
             <canvas id="piechart" style=""></canvas>
         </div>
         <div class="col-md-4">
             <!-- 10 Popular Books -->
-            <div class="p-3 border bg-light">Top 10 Books</div>
+            <h3>Top 10 Books</h3>
+            <br />
             <canvas id="popularBooksChart"></canvas>
         </div>
         <div class="col-md-4">
             <!-- Most Loved Authors -->
-            <div class="p-3 border bg-light">Most Loved Authors</div>
+            <h3>Most Loved Authors</h3>
+            <br />
             <canvas id="authors" style=""></canvas>
         </div>
     </div>
@@ -37,7 +42,9 @@
     <div class="row mt-4" style="max-height:300px; overflow-y:scroll;">
         <div class="col-md-12">
             <!-- Top Students -->
-            <div class="p-3 border bg-light">Top 10 Students</div>
+            <br />
+            <h3>Top 10 Students</h3>
+            <br />
             <div style="overflow-y:scroll;" style="max-height:200px;">
                 <table class="table table-striped" id="myTable">
                     <thead>

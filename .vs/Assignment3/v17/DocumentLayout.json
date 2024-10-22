@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\home\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\home\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|c:\\users\\2002d\\dropbox\\inf 272\\assignment3\\assignment3\\assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\assignment3\\models\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D11B59C-FDFC-4F8B-9E53-EE8884C25376}|Assignment3\\Assignment3.csproj|solutionrelative:assignment3\\models\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Assignment3\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-22T15:20:22.955Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -32,35 +41,9 @@
               "RelativeDocumentMoniker": "Assignment3\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Assignment3\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAkwCQAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T10:47:52.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Report.cshtml",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Report.cshtml",
-              "RelativeDocumentMoniker": "Assignment3\\Views\\Home\\Report.cshtml",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Views\\Home\\Report.cshtml",
-              "RelativeToolTip": "Assignment3\\Views\\Home\\Report.cshtml",
-              "ViewState": "AgIAADEBAAAAAAAAAAAIwEoBAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T10:17:34.967Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReportViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\ReportViewModel.cs",
-              "RelativeDocumentMoniker": "Assignment3\\Models\\ReportViewModel.cs",
-              "ToolTip": "C:\\Users\\2002d\\Dropbox\\INF 272\\Assignment3\\Assignment3\\Assignment3\\Models\\ReportViewModel.cs",
-              "RelativeToolTip": "Assignment3\\Models\\ReportViewModel.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAswIgAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T09:53:27.292Z",
               "EditorCaption": ""
             }
           ]
