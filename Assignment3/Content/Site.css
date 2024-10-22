@@ -18,3 +18,24 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.nav-logo {
+    border-radius: 50%;
+    background-image:url('https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=754&fit=clip');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    
+    margin-right:20px;
+}
+
+* {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+h2{
+    font-size:50px;
+}
